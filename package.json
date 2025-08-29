@@ -1,0 +1,19 @@
+{
+  "name": "game-anak",
+  "version": "1.0.0",
+  "description": "Game edukasi interaktif yang dirancang khusus untuk anak-anak usia 2-5 tahun. Game ini membantu mengembangkan kemampuan kognitif, motorik halus, dan pengenalan konsep dasar.",
+  "main": "script.js",
+  "homepage": "https://asruldev.github.io/alfa",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .",
+    "build": "echo 'Build completed'"
+  },
+  "keywords": ["game", "anak", "edukasi", "interaktif", "belajar", "warna", "bentuk", "angka", "hewan"],
+  "author": "Asrul Harahap",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}

@@ -1,0 +1,685 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    /* Prevent zoom on mobile */
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score-board span {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Audio Toggle Button */
+.audio-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Mobile touch improvements */
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.audio-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Game Menu */
+.game-menu {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.game-menu h2 {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 30px;
+}
+
+.menu-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.menu-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Mobile touch improvements */
+    min-height: 80px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.menu-btn:active {
+    transform: translateY(-2px);
+}
+
+.menu-btn .emoji {
+    font-size: 2.5rem;
+}
+
+/* Game Area */
+.game-area {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: #ff6b6b;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Mobile touch improvements */
+    min-height: 44px;
+    min-width: 80px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+}
+
+.game-header h2 {
+    color: #4a90e2;
+    font-size: 1.8rem;
+}
+
+.game-content {
+    text-align: center;
+}
+
+.question-area {
+    margin-bottom: 30px;
+}
+
+.question-area h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.target-display {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.options-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.option-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    border-radius: 15px;
+    padding: 25px 20px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Mobile touch improvements */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    /* Larger touch target */
+    min-width: 120px;
+}
+
+.option-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.option-btn.correct {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    animation: pulse 0.5s ease-in-out;
+}
+
+.option-btn.incorrect {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    animation: shake 0.5s ease-in-out;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.feedback.correct {
+    color: #27ae60;
+}
+
+.feedback.incorrect {
+    color: #e74c3c;
+}
+
+/* Celebration */
+.celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.celebration-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: bounceIn 0.6s ease-out;
+}
+
+.celebration-content h2 {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+}
+
+.celebration-content p {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.celebration-content button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 10px;
+    padding: 20px 35px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Mobile touch improvements */
+    min-height: 50px;
+    min-width: 120px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.celebration-content button:hover {
+    transform: scale(1.05);
+}
+
+.celebration-content button:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Color swatches for color game */
+.color-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+/* Shape display */
+.shape-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Number display */
+.number-display {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #4a90e2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animal display */
+.animal-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Fruit display */
+.fruit-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Vegetable display */
+.vegetable-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Vehicle display */
+.vehicle-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Family display */
+.family-display {
+    font-size: 5rem;
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .menu-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .options-area {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .target-display {
+        font-size: 2.5rem;
+    }
+    
+    .number-display {
+        font-size: 4rem;
+    }
+    
+    .shape-display,
+    .animal-display,
+    .fruit-display,
+    .vegetable-display,
+    .vehicle-display,
+    .family-display {
+        font-size: 4rem;
+    }
+    
+    .audio-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        top: 15px;
+        right: 15px;
+    }
+    
+    /* Larger buttons for mobile */
+    .menu-btn {
+        padding: 30px 20px;
+        min-height: 100px;
+        font-size: 1.4rem;
+    }
+    
+    .option-btn {
+        padding: 30px 15px;
+        min-height: 120px;
+        font-size: 1.4rem;
+    }
+    
+    .back-btn {
+        padding: 18px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .celebration-content button {
+        padding: 25px 40px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .options-area {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .audio-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        top: 10px;
+        right: 10px;
+    }
+    
+    /* Even larger buttons for small mobile */
+    .menu-btn {
+        padding: 35px 25px;
+        min-height: 120px;
+        font-size: 1.5rem;
+    }
+    
+    .option-btn {
+        padding: 35px 20px;
+        min-height: 140px;
+        font-size: 1.5rem;
+    }
+    
+    .back-btn {
+        padding: 20px 35px;
+        font-size: 1.3rem;
+    }
+    
+    .celebration-content button {
+        padding: 30px 45px;
+        font-size: 1.5rem;
+    }
+    
+    .target-display {
+        font-size: 2rem;
+    }
+    
+    .number-display {
+        font-size: 3.5rem;
+    }
+    
+    .shape-display,
+    .animal-display,
+    .fruit-display,
+    .vegetable-display,
+    .vehicle-display,
+    .family-display {
+        font-size: 3.5rem;
+    }
+    
+    .color-swatch {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .container {
+        padding: 5px;
+    }
+    
+    header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .game-menu,
+    .game-area {
+        padding: 20px;
+    }
+    
+    .menu-btn {
+        padding: 40px 30px;
+        min-height: 140px;
+        font-size: 1.6rem;
+    }
+    
+    .option-btn {
+        padding: 40px 25px;
+        min-height: 160px;
+        font-size: 1.6rem;
+    }
+    
+    .back-btn {
+        padding: 25px 40px;
+        font-size: 1.4rem;
+    }
+    
+    .celebration-content button {
+        padding: 35px 50px;
+        font-size: 1.6rem;
+    }
+}
+
+/* iPhone specific optimizations */
+@media screen and (max-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 6/7/8 Plus and newer */
+    .menu-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .menu-btn {
+        min-height: 80px;
+        padding: 25px 15px;
+        font-size: 1.3rem;
+    }
+    
+    .option-btn {
+        min-height: 100px;
+        padding: 25px 15px;
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 6/7/8 */
+    .menu-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .menu-btn {
+        min-height: 70px;
+        padding: 20px 10px;
+        font-size: 1.2rem;
+    }
+    
+    .option-btn {
+        min-height: 90px;
+        padding: 20px 10px;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 5/SE */
+    .menu-buttons {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .menu-btn {
+        min-height: 60px;
+        padding: 15px 10px;
+        font-size: 1.1rem;
+    }
+    
+    .option-btn {
+        min-height: 80px;
+        padding: 15px 10px;
+        font-size: 1.1rem;
+    }
+    
+    .options-area {
+        grid-template-columns: 1fr;
+    }
+}
