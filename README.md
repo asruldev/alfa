@@ -118,12 +118,26 @@ Game edukasi interaktif yang dirancang khusus untuk anak-anak usia 2-5 tahun. Ga
    git clone https://github.com/asruldev/alfa.git
    cd alfa
    ```
-2. **Buka file `index.html`** di browser web
-3. **Atau jalankan server lokal**:
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Buka file `index.html`** di browser web
+4. **Atau jalankan server lokal**:
    ```bash
    python3 -m http.server 8000
    ```
-4. **Buka**: `http://localhost:8000`
+5. **Buka**: `http://localhost:8000`
+
+### 🚀 Deployment
+Untuk deploy ke GitHub Pages:
+```bash
+# Deploy menggunakan npm
+npm run deploy
+
+# Atau menggunakan script
+./deploy.sh
+```
 
 ## 📱 Kompatibilitas
 
