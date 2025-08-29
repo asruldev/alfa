@@ -2,6 +2,10 @@
 
 Game edukasi interaktif yang dirancang khusus untuk anak-anak usia 2-5 tahun. Game ini membantu mengembangkan kemampuan kognitif, motorik halus, dan pengenalan konsep dasar.
 
+## 🌐 Live Demo
+
+**🎮 [Mainkan Game Sekarang](https://asruldev.github.io/alfa/)**
+
 ## 🌟 Fitur Utama
 
 ### 1. **Game Warna** 🎨
@@ -100,12 +104,24 @@ Game edukasi interaktif yang dirancang khusus untuk anak-anak usia 2-5 tahun. Ga
 
 ## 🚀 Cara Menjalankan
 
-1. **Buka file `index.html`** di browser web
+### 🌐 Online (Direkomendasikan)
+1. **Kunjungi**: [https://asruldev.github.io/alfa/](https://asruldev.github.io/alfa/)
 2. **Pilih jenis game** yang ingin dimainkan (8 pilihan tersedia)
 3. **Atur suara** dengan tombol 🔊 di pojok kanan atas
-4. **Ikuti instruksi** yang muncul di layar
-5. **Klik jawaban** yang benar
-6. **Nikmati animasi dan suara** yang menyenangkan
+4. **Nikmati permainan**!
+
+### 💻 Local Development
+1. **Clone repository**:
+   ```bash
+   git clone https://github.com/asruldev/alfa.git
+   cd alfa
+   ```
+2. **Buka file `index.html`** di browser web
+3. **Atau jalankan server lokal**:
+   ```bash
+   python3 -m http.server 8000
+   ```
+4. **Buka**: `http://localhost:8000`
 
 ## 📱 Kompatibilitas
 
@@ -198,6 +214,23 @@ Game ini dapat dengan mudah dikustomisasi:
 
 Game ini dibuat untuk tujuan edukasi dan dapat digunakan secara bebas untuk pembelajaran anak-anak.
 
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan buat pull request atau buka issue untuk saran dan perbaikan.
+
+## 📞 Kontak
+
+- **GitHub**: [@asruldev](https://github.com/asruldev)
+- **Repository**: [https://github.com/asruldev/alfa](https://github.com/asruldev/alfa)
+
 ---
 
 **Selamat bermain dan belajar dengan suara yang menyenangkan! 🎉🎵**
+
+---
+
+<div align="center">
+  <a href="https://asruldev.github.io/alfa/">
+    <img src="https://img.shields.io/badge/Play%20Now-Game%20Anak%20Ceria-brightgreen?style=for-the-badge&logo=game-controller" alt="Play Now">
+  </a>
+</div>
