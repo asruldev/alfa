@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Game Anak Ceria - Usia 2-5 Tahun</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Game Anak Ceria 🎮</h1>
+            <div class="score-board">
+                <span>⭐ Skor: <span id="score">0</span></span>
+                <span>🎯 Level: <span id="level">1</span></span>
+            </div>
+        </header>
+
+        <div class="game-menu" id="gameMenu">
+            <h2>Pilih Game:</h2>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="startGame('colors')">
+                    <span class="emoji">🎨</span>
+                    <span>Warna</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('shapes')">
+                    <span class="emoji">🔷</span>
+                    <span>Bentuk</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('numbers')">
+                    <span class="emoji">🔢</span>
+                    <span>Angka</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('animals')">
+                    <span class="emoji">🐾</span>
+                    <span>Hewan</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('fruits')">
+                    <span class="emoji">🍎</span>
+                    <span>Buah</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('vegetables')">
+                    <span class="emoji">🥕</span>
+                    <span>Sayur</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('vehicles')">
+                    <span class="emoji">🚗</span>
+                    <span>Kendaraan</span>
+                </button>
+                <button class="menu-btn" onclick="startGame('family')">
+                    <span class="emoji">👨‍👩‍👧‍👦</span>
+                    <span>Keluarga</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="game-area" id="gameArea" style="display: none;">
+            <div class="game-header">
+                <button class="back-btn" onclick="showMenu()">← Kembali</button>
+                <h2 id="gameTitle">Game</h2>
+            </div>
+            
+            <div class="game-content">
+                <div class="question-area">
+                    <h3 id="question">Pertanyaan</h3>
+                    <div id="targetDisplay" class="target-display"></div>
+                </div>
+                
+                <div class="options-area" id="optionsArea">
+                    <!-- Opsi akan diisi oleh JavaScript -->
+                </div>
+                
+                <div class="feedback" id="feedback"></div>
+            </div>
+        </div>
+
+        <div class="celebration" id="celebration" style="display: none;">
+            <div class="celebration-content">
+                <h2>🎉 Selamat! 🎉</h2>
+                <p>Kamu hebat!</p>
+                <button onclick="continueGame()">Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
