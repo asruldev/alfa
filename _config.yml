@@ -1,0 +1,28 @@
+# GitHub Pages configuration
+# This file tells GitHub Pages how to serve the site
+
+# Disable Jekyll processing
+markdown: kramdown
+highlighter: rouge
+
+# Set the base URL for the site
+baseurl: "/alfa"
+url: "https://asruldev.github.io"
+
+# Exclude files from processing
+exclude:
+  - .gitignore
+  - README.md
+  - .github/
+  - node_modules/
+  - package.json
+  - package-lock.json
+
+# Include files that should be processed
+include:
+  - _config.yml
+  - index.html
+  - style.css
+  - script.js
+  - 404.html
+  - .nojekyll
