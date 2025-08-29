@@ -6,6 +6,8 @@ Game edukasi interaktif yang dirancang khusus untuk anak-anak usia 2-5 tahun. Ga
 
 **🎮 [Mainkan Game Sekarang](https://asruldev.github.io/alfa/)**
 
+> **Note**: Jika link di atas belum berfungsi, tunggu beberapa menit setelah push terakhir. GitHub Pages membutuhkan waktu untuk build dan deploy.
+
 ## 🌟 Fitur Utama
 
 ### 1. **Game Warna** 🎨
